@@ -1,6 +1,6 @@
 const express = require("express");
-require("./db/conn");
-const User = require("./models/userschema")
+require("./src/db/conn");
+const User = require("./src/models/userschema")
 const bodyParser = require("body-parser")
 
 
@@ -12,14 +12,14 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 
-const viewpath = path.join(__dirname, "../templates/views")
+const viewpath = path.join(__dirname, "./templates/views")
 const partialpath = path.join(__dirname, "../templates/partials")
-const staticpath = path.join(__dirname, "../public")
+const staticpath = path.join(__dirname, "public")
 const imgpath = path.join(__dirname, "../public/images")
 
-app.use("/css", express.static(path.join(__dirname, "../node_modules/bootstrap/dist/css")))
-app.use("/js", express.static(path.join(__dirname, "../node_modules/bootstrap/dist/js")))
-app.use("/jq", express.static(path.join(__dirname, "../node_modules/jquery/dist")))
+app.use("/css", express.static(path.join(__dirname, "/node_modules/bootstrap/dist/css")))
+app.use("/js", express.static(path.join(__dirname, "/node_modules/bootstrap/dist/js")))
+app.use("/jq", express.static(path.join(__dirname, "/node_modules/jquery/dist")))
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
